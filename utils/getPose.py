@@ -35,7 +35,6 @@ def getPose(E,K,matches,ims):
     Rt[:, :, 3] = sols[3]
 
 
-
     #Por cada solucion
     P0 = np.dot(K,np.hstack([np.eye(3),np.zeros((3,1))]))
     goodV = np.zeros((1,4))

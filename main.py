@@ -28,29 +28,30 @@ def updateMerged(gA,gB,imsize):
     return gt
 
 if __name__ == "__main__":
+
+    #---------------------------SET PARAMETERS
     maxSize = 640 #maxima resolucion de imagen
-    carpetaImagenes = 'C:/Users/andres/Desktop/SFMedu2/images/cr/'
-    # carpetaImagenes = "C:/Users/andres/Desktop/datasetImagenes/Reduced/jirafa/"
-    # carpetaImagenes = "C:/Users/andres/Desktop/datasetImagenes/Reduced/apple/"
+    carpetaImagenes = 'example/'
     debug = True
-    outName = "apple"
+    outName = "jirafa" #out name for ply file (open with mesh lab to see poitn cloud)
+    validFile = ['jpg','png','JPG'] #tipos validos de imagenes
+    # Intentar conseguir la distancia focal
+    # TODO agregar calculo este valor deberia funcionar con imagenes 480x640 focalLen 4mm
+    f = 719.5459
+
+    # ---------------------------SET PARAMETERS
+
 
     algoMatrizFundamental = implementacionRansac
-
-    #declaraciones
 
     graphList = []
 
     #Cargar imagenes
     listaArchivos = os.listdir(carpetaImagenes)
-    tiposValidos = ['jpg','png','JPG'] #tipos validos de imagenes
-    listaImages = filter(lambda x : x.split('.')[-1] in tiposValidos,listaArchivos )
+    listaImages = filter(lambda x : x.split('.')[-1] in validFile,listaArchivos )
 
 
 
-    #Intentar conseguir la distancia focal
-    # TODO agregar calculo este valor deberia funcionar con imagenes 480x640 focalLen 4mm
-    f=719.5459
 
     #Carga las imagenes
     listaImages = map(lambda x : cv2.imread(carpetaImagenes+x),listaImages)

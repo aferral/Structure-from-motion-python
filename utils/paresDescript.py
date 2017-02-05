@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 from utils.matchSift import matchSIFTdescr
 from utils.loadDatacsv import load
-sift = cv2.SIFT(contrastThreshold=0.04)
+sift = cv2.SIFT(contrastThreshold=0.08)
 import numpy as np
 
 def drawMatches(img1, kp1, img2, kp2, indicesI,indicesJ):
