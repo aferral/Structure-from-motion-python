@@ -27,7 +27,7 @@ def bundleAdjustment(graph, adjustFocalLength=False):
     #Realizar optimizacion de valores
     #Quiero conseguir minimizar la norma del vector reprojectionResidual
     fun = lambda x : wrapperFuntionStrMot(x,nCamaras,graph.ObsIdx,graph.obsVal,px,py,f)
-    sol = least_squares(fun, packmotst(mot,stre), method='lm')
+    sol = least_squares(fun, packmotst(mot,stre), method='lm',max_nfev=1000)
     resultM, resultS = unpackMotStr(sol.x,nCamaras,graph.ObsIdx.shape[0])
     print "Error despues de optimizar de ", error(sol.fun)
 
@@ -210,13 +210,13 @@ def AngleAxis2RotationMatrix(angle_axis):
         R[2,2] = costheta + wz * wz * (1 - costheta)
     else:
         R[0, 0] = 1
-        R[1, 0] = -angle_axis(3)
-        R[2, 0] = angle_axis(2)
-        R[0, 1] = angle_axis(3)
+        R[1, 0] = -angle_axis[2]
+        R[2, 0] = angle_axis[1]
+        R[0, 1] = angle_axis[2]
         R[1,1] = 1
-        R[2,1] = -angle_axis(1)
-        R[0,2] = -angle_axis(2)
-        R[1,2] = angle_axis(1)
+        R[2,1] = -angle_axis[0]
+        R[0,2] = -angle_axis[1]
+        R[1,2] = angle_axis[0]
         R[2,2] = 1
     return R
 if __name__ == '__main__':

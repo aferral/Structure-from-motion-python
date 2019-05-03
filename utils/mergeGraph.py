@@ -2,7 +2,7 @@ from copy import deepcopy
 import numpy as np
 from utils.graph import transformPtsByRt, tempGraph
 from utils.parser import parseStruct, getIndexOfRow
-from test.dataMergeTest import *
+from test_data.dataMergeTest import *
 
 def mergeG(gA, gB):
     # Como ejemplo sean frames A 1 2 y B 2 3

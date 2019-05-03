@@ -1,0 +1,6 @@
+matplotlib==1.5.3
+numpy==1.11.1
+opencv-contrib-python==3.4.2.16
+plyfile==0.7
+scipy==1.2.1
+

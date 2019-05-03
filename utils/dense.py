@@ -1,4 +1,4 @@
-from test.dataMergeTest import *
+from test_data.dataMergeTest import *
 from utils.getPose import vgg_X_from_xP_nonlin
 from utils.graph import visualizeDense
 from utils.mergeGraph import dictToGraph

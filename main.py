@@ -32,7 +32,7 @@ if __name__ == "__main__":
     #---------------------------SET PARAMETERS
     maxSize = 640 #maxima resolucion de imagen
     carpetaImagenes = 'example/'
-    debug = True
+    debug = False
     outName = "jirafa" #out name for ply file (open with mesh lab to see poitn cloud)
     validFile = ['jpg','png','JPG'] #tipos validos de imagenes
     # Intentar conseguir la distancia focal
